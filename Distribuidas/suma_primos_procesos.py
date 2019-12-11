@@ -18,9 +18,23 @@ def sum_primes(identificador,minimo,maximo,conn):
             identificador, minimo, maximo, suma ))
 
 if __name__ == '__main__':
+    while 1:
+        
+        input_n = input("Ingrese el número de máximo para la suma de primos: \n")
+        input_numero_hilos = input("Ingrese el número de procesos: \n")        
 
-    n = 1000000
-    numprocess = 4
+        try:
+            n = int(input_n)
+            numprocess = int(input_numero_hilos)
+        except ValueError :
+            print("Los numeros deben ser enteros ")
+            continue
+
+        if numprocess > n:
+            print("El numero de procesos debe ser menor al numero máximo para la suma")
+            continue
+        else:
+            break
     
     pasos = math.ceil(n/numprocess)
     array = []
